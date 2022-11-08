@@ -1,10 +1,6 @@
-using Bookstore.GraphqlBookstore.Queries;
-using Bookstore.GraphqlBookstore.Resolvers;
+using Bookstore.AppConfig;
 using Bookstore.GraphqlBookstore.Schemas;
-using Bookstore.Services.Config;
 using GraphiQl;
-using GraphQL;
-using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -39,14 +35,10 @@ namespace Bookstore
             });
 
             // DI
-            services.AddSingleton<BookstoreQuery>();
-            services.AddSingleton<ISchema, BookstoreSchema>();
-
-            services.AddSingleton<IBookResolver, BookResolver>();
-            services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
-            
-            ServicesConfig.Run(services, Configuration);
-            //services.Configure<FinInfraDbSettings>(configuration.GetSection(AppConstants.FIN_INFRA_DATABASE));
+            DependencyContainer.InitializeConfig(services, Configuration);
+            DependencyContainer.InitializeGraphQlServices(services, Configuration);
+            DependencyContainer.InitializeServices(services, Configuration);
+            DependencyContainer.InitializeRepositories(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

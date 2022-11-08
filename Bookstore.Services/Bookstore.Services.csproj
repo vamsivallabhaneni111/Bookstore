@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bookstore.Repository.Mongo\Bookstore.Repository.Mongo.csproj" />
     <ProjectReference Include="..\Bookstore.Repository\Bookstore.Repository.csproj" />
   </ItemGroup>
   
