@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  bookstore-db:
+    image: "mongo:latest"
+    container_name: "bookstore-db-container"
+    # ports:
+    #   - "27017:27017" #Expose this if you want to connect mongo-client(compass) from external sources(Web).
+
+  bookstore-api:
+    image: "bookstore-api"
+    build:
+      context: .
+      dockerfile: Bookstore.Api/Dockerfile
+    container_name: "bookstore-api-container"
+    links:
+      - "bookstore-db"
+    ports:
+      - "5000:80"
+      - "5001:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=DockerLocal
