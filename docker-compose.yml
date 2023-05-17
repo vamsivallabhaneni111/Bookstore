@@ -3,8 +3,8 @@ services:
   bookstore-db:
     image: "mongo:latest"
     container_name: "bookstore-db-container"
-    # ports:
-    #   - "27017:27017" #Expose this if you want to connect mongo-client(compass) from external sources(Web).
+    ports:
+       - "27017:27017" #Expose this if you want to connect mongo-client(compass) from external sources(Web).
 
   bookstore-api:
     image: "bookstore-api"

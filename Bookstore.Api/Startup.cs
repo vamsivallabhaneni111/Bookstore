@@ -55,6 +55,8 @@ namespace Bookstore
                 app.UseHsts();
             }
 
+            app.UseCors();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
