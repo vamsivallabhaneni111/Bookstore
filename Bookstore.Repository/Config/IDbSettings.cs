@@ -2,7 +2,7 @@
 {
     public interface IDbSettings
     {
-        ConnectionName ConnectionName { get; }
+        static string ConfigName { get; }
         DatabaseType DatabaseType { get; }
         string ConnectionURI { get; set; }
         string DatabaseName { get; set; }

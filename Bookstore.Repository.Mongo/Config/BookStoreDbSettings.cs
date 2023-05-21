@@ -8,6 +8,6 @@ namespace Bookstore.Repository.Mongo.Config
         public string ConnectionURI { get; set; }
 
         public DatabaseType DatabaseType => DatabaseType.MONGO;
-        public ConnectionName ConnectionName => ConnectionName.BookStoreDbConnection;
+        public static string ConfigName  => "BookstoreDbConnection";
     }
 }

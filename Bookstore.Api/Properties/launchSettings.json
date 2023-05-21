@@ -24,12 +24,25 @@
       },
       "applicationUrl": "https://localhost:3700;http://localhost:3701"
     },
-    "Docker": {
+    "Bookstore_Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "DockerLocal"
+        "ASPNETCORE_ENVIRONMENT": "Bookstore_Docker"
+      },
+      "publishAllPorts": true,
+      "useSSL": true
+    },
+    "Bookstore_DockerCompose": {
+      "commandName": "Executable",
+      "executablePath": "docker-compose",
+      "workingDirectory": "$(SolutionDir)",
+      "commandLineArgs": "-f docker-compose.yml up",
+      "launchBrowser": true,
+      "launchUrl": "swagger/index.html",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Bookstore_DockerCompose"
       },
       "publishAllPorts": true,
       "useSSL": true

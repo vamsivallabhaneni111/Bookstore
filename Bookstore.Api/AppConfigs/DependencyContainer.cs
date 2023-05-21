@@ -13,9 +13,8 @@ using Bookstore.Services.Core;
 using Bookstore.Repository.Entities;
 using Bookstore.Repository.Mongo.Entities;
 using Bookstore.Repository.Mongo.Config;
-using Bookstore.Repository.Config;
 
-namespace Bookstore.AppConfig
+namespace Bookstore.AppConfigs
 {
     public class DependencyContainer
     {
@@ -48,8 +47,7 @@ namespace Bookstore.AppConfig
         {
             services.AddSingleton<Book>();
             services.AddTransient<IBookRepository, BookRepository>(); 
-            services.Configure<BookStoreDbSettings>(configuration.GetSection(RepoConstants.BOOK_STORE_DATABASE))
-                .AddSingleton<IDbSettings>();
+            services.Configure<BookStoreDbSettings>(configuration.GetSection(BookStoreDbSettings.ConfigName));
         }
     }
 }

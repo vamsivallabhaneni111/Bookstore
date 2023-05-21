@@ -5,10 +5,4 @@
         MS_SQL,
         MONGO
     }
-
-    public enum ConnectionName
-    {
-        BookStoreDbConnection,
-        FinInfraDbConnection
-    }
 }

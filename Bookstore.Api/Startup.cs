@@ -1,4 +1,4 @@
-using Bookstore.AppConfig;
+using Bookstore.AppConfigs;
 using Bookstore.GraphqlBookstore.Schemas;
 using GraphiQl;
 using Microsoft.AspNetCore.Builder;
@@ -55,7 +55,10 @@ namespace Bookstore
                 app.UseHsts();
             }
 
-            app.UseCors();
+            app.UseCors(builder => builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
